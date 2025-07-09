@@ -4,16 +4,17 @@ const monedas = {
   GBP: 0.87,
 };
 
-const fromDollarToYen = (usd) => {
-  return usd * monedas.JPY;
+const fromDollarToYen = (euros) => {
+  return euros * monedas.JPY;
 }
 
-const fromEuroToDollar = (euros) => {
-  return euros * monedas.USD;
+const fromEuroToDollar = (euro) => {
+  return euro * monedas.USD;
 }
 
 const fromYenToPound = (yen) => {
-  return yen * monedas.GBP;
+  let euros = yen / monedas.JPY;
+  return euros * monedas.GBP
 }
 
 module.exports = { fromDollarToYen, fromEuroToDollar, fromYenToPound };

@@ -1,22 +1,26 @@
-const { fromDollarToYen, fromEuroToDollar, fromYenToPound } = require('./app.js'); // remplaza './archivo' con tu archivo
+const { fromDollarToYen, fromEuroToDollar, fromYenToPound } = require('./app.js');
 
-test("Un euro debería ser 1.07 dólares", function () {
-  const { fromEuroToDollar } = require('./app.js');
-  const resultado = fromEuroToDollar(3.5);
-  const esperado = 3.745;
-  expect(resultado).toBeCloseTo(esperado);
+
+test('Cinco euros deberían ser 5.35 dólares', () => {
+    let total = fromEuroToDollar(5);
+    expect(total).toBeCloseTo(5.35);
 });
 
-test("Un dólar debería ser 156.5 yenes", function () {
-  const { fromDollarToYen } = require('./app.js');
-  const resultado = fromDollarToYen(2);
-  const esperado = 313;
-  expect(resultado).toBeCloseTo(esperado);
+
+test('Diez dólares deberían ser 1565 yenes', () => {
+    let total = fromDollarToYen(10);
+    expect(total).toBeCloseTo(1565);
 });
 
-test("1000 yenes deberían ser 870 libras", function () {
-  const { fromYenToPound } = require('./app.js');
-  const resultado = fromYenToPound(1000);
-  const esperado = 870;
-  expect(resultado).toBeCloseTo(esperado);
+
+test('2000 yenes deberían ser aproximadamente 11.11 libras', () => {
+    let total = fromYenToPound(2000);
+    const expected = (2000 / 156.5) * 0.87;
+    expect(total).toBeCloseTo(expected);
+});
+
+test('100 yenes a libras esterlinas ', () => {
+    let totalCien = fromYenToPound(100);
+    const expected = (100 / 156.5) * 0.87;
+    expect(totalCien).toBeCloseTo(expected); 
 });
